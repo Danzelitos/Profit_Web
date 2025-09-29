@@ -1,0 +1,91 @@
+:root {
+	--brand:#7053ff;
+	--brand2: #c03bff;
+	--logo-url: url("assets/main/profit_logo_2-Photoroom.png");
+}
+/* Reveal on scroll */
+.reveal { opacity:0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.is-visible { opacity:1; transform: none; }
+/* Card hover */
+.pn-card {
+	transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+	box-shadow: 0 8px 24px rgba(0,0,0,.06);
+	border:1px solid rgba(0,0,0,.06);
+	background:#fff;
+}
+.pn-card:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 14px 32px rgba(0,0,0,.12);
+	border-color: var(--brand);
+}
+
+/* БАЗА: всегда яркий, хорошо видимый логотип */
+.logo{
+	position: relative;
+	/* маска PNG, фон рисует “заливку” логотипа */
+	-webkit-mask: var(--logo-url) center / contain no-repeat;
+					mask: var(--logo-url) center / contain no-repeat;
+	background:
+		radial-gradient(85% 85% at 50% 50%, var(--brand2) 0%, var(--brand) 60%, #6a5cff 100%),
+		var(--brand);                 /* + сплошная подложка чтобы точно было ярко */
+	/* усиленный базовый свет */
+	filter: drop-shadow(0 0 12px rgba(112,83,255,.55));
+}
+/* мягкий фиолетовый ореол */
+.glow {
+	filter:
+		/* drop-shadow(0 0 100px rgba(255, 238, 0, 0.85)) */
+		drop-shadow(0 0 45px rgb(154, 160, 98));
+}
+
+.sweep{ overflow: visible; }
+
+/* Статическая усиленная подложка — чёткий контур + glow */
+.sweep::before{
+	content:"";
+	position:absolute; inset:0;
+	-webkit-mask: var(--logo-url) center/contain no-repeat;
+					mask: var(--logo-url) center/contain no-repeat;
+	background:
+		radial-gradient(70% 70% at 50% 50%, #d36aff 0%, var(--brand2) 45%, var(--brand) 100%),
+		var(--brand);
+	filter:
+		drop-shadow(0 0 14px rgba(112,83,255,.55))
+		drop-shadow(0 0 22px rgba(192,59,255,.35));
+	opacity: 1;   /* базовая яркость */
+}
+
+/* Движущийся блик-сканер — только “подсветка сверху” */
+.sweep::after{
+	content:"";
+	position:absolute; inset:0;
+	-webkit-mask: var(--logo-url) center/contain no-repeat;
+					mask: var(--logo-url) center/contain no-repeat;
+	background: linear-gradient(100deg,
+		rgba(255,255,255,0) 10%,
+		rgba(255,255,255,.55) 40%,
+		rgba(255,255,255,0) 70%);
+	background-size: 240% 100%;
+	animation: sweepMove 2.6s ease-in-out infinite;
+	mix-blend-mode: screen;                /* световой режим смешения */
+	filter: blur(.6px) drop-shadow(0 0 10px rgba(255,255,255,.35));
+	opacity:.9;
+}
+
+/* Prefer-reduced-motion: off animations */
+@media (prefers-reduced-motion: reduce) {
+	.reveal, .pn-card { transition:none !important; transform:none !important; }
+}
+/* Уважение к prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce){
+	.logo::after,
+	.logo::before{ animation: none !important; }
+}
+
+@keyframes sweepMove{
+	0%   { background-position: -100% 0; }
+	25%  { background-position: -50%  0; }
+	50%  { background-position:   0% 0; }
+	75%  { background-position:   50% 0; }
+	100% { background-position:  100% 0; }
+}

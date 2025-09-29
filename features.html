@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="assets/favicons/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/favicons/favicon-64x64.png">
+  <link rel="icon" type="image/png" sizes="128x128" href="assets/favicons/favicon-128x128.png">
+  <link rel="icon" type="image/png" sizes="256x256" href="assets/favicons/favicon-256x256.png">
+    
+  <!-- Android/Chrome icons -->
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/favicons/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/favicons/android-chrome-512x512.png">
+    
+  <!-- Apple Touch Icon (iOS) -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/android-chrome-192x192.png">
+    
+  <!-- Web App Manifest -->
+  <link rel="manifest" href="assets/favicons/site.webmanifest">
+  <title>Profit Nodes — Features</title>
+  <!-- Tailwind (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+      :root {
+          --brand:#7053ff;
+        }
+    /* Тонкая тень и неоновая подсветка при ховере */
+    .card {
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
+      box-shadow: 0 8px 24px rgba(0,0,0,.06);
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 26px rgba(0,0,0,.10);
+      border-color: #7053ff;
+    }
+    .dot {
+      width: .4rem; height: .4rem; border-radius: 9999px; background: #7053ff;
+      box-shadow: 0 0 0 .22rem rgba(112,83,255,.12);
+    }
+  </style>
+</head>
+<body class="bg-white text-black antialiased">
+  <!-- Header (минимальный) -->
+
+
+  <header class="sticky top-0 z-30 bg-white/80 backdrop-blur border-b border-gray-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-2.5 md:py-3 flex items-center justify-between">
+    <!-- Left: Logo -->
+    <a href="index.html" class="flex items-center gap-2 md:gap-3">
+      <!-- меньше на md, обычный на lg -->
+      <img src="assets/logo.svg" alt="Logo"
+           class="h-8 w-8 md:h-9 md:w-9 lg:h-12 lg:w-12 object-contain" />
+      <span class="font-bold text-base md:text-[15px] lg:text-xl">Profit Nodes</span>
+    </a>
+
+    <!-- Center nav (desktop) -->
+    <!-- на md показываем, делаем компактнее; на lg возвращаем обычные отступы и размер -->
+  <nav class="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-4 md:text-[13px] lg:gap-8 lg:text-base">
+  <a href="index.html" class="relative hover:text-[#7053ff]  after:absolute after:left-0 after:bottom-[-4px] after:w-0 after:h-[2px] after:bg-[#7053ff] after:transition-all after:duration-500 hover:after:w-full">About us</a>
+  <a href="projects.html" class="relative hover:text-[#7053ff] after:absolute after:left-0 after:bottom-[-4px] after:w-0 after:h-[2px] after:bg-[#7053ff] after:transition-all after:duration-500 hover:after:w-full">Projects</a>
+  <a href="features.html" class="relative hover:text-[#7053ff] font-semibold text-[#7053ff] after:absolute after:left-0 after:bottom-[-4px] after:w-0 after:h-[2px] after:bg-[#7053ff] after:transition-all after:duration-500 hover:after:w-full">Features</a>
+  <a href="subscription.html" class="relative hover:text-[#7053ff] after:absolute after:left-0 after:bottom-[-4px] after:w-0 after:h-[2px] after:bg-[#7053ff] after:transition-all after:duration-500 hover:after:w-full">Subscription</a>
+  <a href="community.html" class="relative hover:text-[#7053ff] after:absolute after:left-0 after:bottom-[-4px] after:w-0 after:h-[2px] after:bg-[#7053ff] after:transition-all after:duration-500 hover:after:w-full">Community</a>
+</nav>
+
+    <!-- Right: language + CTA -->
+    <div class="hidden md:flex items-center gap-2 md:gap-3">
+      <!-- язык: компактнее на md, обычный на lg -->
+      <div class="relative inline-block">
+        <!--<select id="lang"-->
+        <!--  class="appearance-none bg-white border border-gray-300-->
+        <!--         text-[13px] md:px-3 md:py-1.5 md:pr-7-->
+        <!--         lg:text-sm lg:px-4 lg:py-2 lg:pr-8-->
+        <!--         rounded-full shadow-md focus:outline-none cursor-pointer text-gray-600">-->
+        <!--  <option value="en" selected>ENG</option>-->
+        <!--  <option value="ru">RUS</option>-->
+        <!--</select>-->
+        <img src="assets/main/ArrowDownFill.svg" alt="arrow"
+             class="pointer-events-none absolute right-2 lg:right-3 top-1/2 -translate-y-1/2 w-3 h-3 opacity-60" />
+      </div>
+
+      <!-- CTA: компактнее на md, обычная на lg -->
+      <a href="https://t.me/ProfitNodes_bot"
+         class="text-white bg-[color:var(--brand)] hover:opacity-90
+                rounded-full
+                md:px-3 md:py-1.5 md:text-[13px]
+                lg:px-4 lg:py-2 lg:text-base">
+        Join now
+      </a>
+    </div>
+
+    <!-- Burger (mobile)  -->
+    <button id="burger" class="md:hidden p-2 rounded-md border border-gray-200">
+      <svg width="20" height="20" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mnav" class="md:hidden hidden border-t border-gray-100">
+    <div class="px-4 py-3 flex flex-col gap-3">
+      <a href="index.html" class="py-1">About us</a>
+      <a href="projects.html" class="py-1">Projects</a>
+      <a href="features.html" class="py-1">Features</a>
+      <a href="subscription.html" class="py-1">Subscription</a>
+      <a href="community.html" class="py-1">Community</a>
+      <div class="flex items-center justify-between pt-2">
+        <div class="relative inline-block">
+          <select
+            class="appearance-none bg-white border border-gray-300 text-sm px-3 py-2 pr-7 rounded-full shadow-md text-gray-600">
+            <option value="en" selected>ENG</option>
+            <option value="ru">RUS</option>
+          </select>
+          <img src="assets/ArrowDownFill.svg"
+               class="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 w-3 h-3 opacity-60" />
+        </div>
+        <a href="https://t.me/ProfitNodes_bot"
+           class="text-white px-4 py-2 rounded-full bg-[color:var(--brand)]">Join now</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 -z-10" style="background: radial-gradient(60% 60% at 50% 0%, rgba(112,83,255,.18) 0%, rgba(112,83,255,0) 60%);"></div>
+    <div class="max-w-4xl mx-auto px-6 py-16 text-center">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7053ff]/10 text-[#7053ff] text-xs font-medium mb-4">
+        <span class="dot"></span> PRO FEATURES
+      </div>
+      <h1 class="text-3xl md:text-5xl font-extrabold leading-tight mb-4">
+        Tools that make running nodes faster, safer and smarter
+      </h1>
+      <p class="text-gray-600 max-w-2xl mx-auto">
+        A suite of AI‑powered tools and services built by Profit Nodes to boost your node setup, monitoring and learning.
+      </p>
+  	</div>
+  </section>
+
+  <!-- Feature Cards -->
+<section id="feature-cards" class="max-w-7xl mx-auto px-6 py-16">
+  <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Features</h2>
+
+  <div class="grid gap-8 md:grid-cols-2">
+    <!-- Profit Nodes GPT -->
+    <article class="card bg-white border border-gray-200 rounded-2xl p-8">
+      <div class="flex items-start gap-4 mb-4">
+        <img src="assets/feature/ArtificialIntelligenceSpark.svg" alt="GPT Bot" class="w-10 h-10">
+        <div>
+          <h3 class="text-xl font-bold">Profit Nodes GPT</h3>
+          <p class="text-gray-600">
+            GPT‑powered assistant available to private chat subscribers. Guides you through node installation and solves related issues step‑by‑step.
+          </p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3 pt-4">
+        <span class="text-xs px-2 py-1 rounded-full bg-[#7053ff]/10 text-[#7053ff]">AI</span>
+        <a href="https://t.me/profit_nodes_helper_bot" data-feature="GPT"
+          class="feature-more text-[#7053ff] text-sm font-medium hover:underline inline-block mt-3">
+          Learn more →
+        </a>
+      </div>
+    </article>
+
+    <!-- Profit Parser Bot -->
+    <article class="card bg-white border border-gray-200 rounded-2xl p-8">
+        <div class="flex items-start gap-4 mb-4">
+          <!-- Icon: parser/scroll -->
+          <img src="assets/feature/RobotExcited.svg" alt="Parser Bot" class="w-10 h-10  ">
+          <div>
+            <h3 class="text-xl font-bold">Profit Parser Bot</h3>
+            <p class="text-gray-600">
+              Monitors project Discords, extracts key updates, summarizes them with AI, and delivers bite‑size insights to our private channel.
+            </p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 pt-4">
+          <span class="text-xs px-2 py-1 rounded-full bg-[#7053ff]/10 text-[#7053ff]">Automation</span>
+          <a href="#" data-feature="parser"
+             class="feature-more text-[#7053ff] text-sm font-medium hover:underline inline-block mt-3">
+            Learn more →
+          </a>
+        </div>
+      </article>
+
+    <!-- Profit AI Helper -->
+    <article class="card bg-white border border-gray-200 rounded-2xl p-8">
+        <div class="flex items-start gap-4 mb-4">
+          <!-- Icon: knowledge/agent -->
+          <img src="assets/feature/AiChatOpenAssistantChatbot.svg" alt="AI Helper Bot" class="w-10 h-10  ">
+          <div>
+            <h3 class="text-xl font-bold">Profit AI Helper</h3>
+            <p class="text-gray-600">
+              A focused AI agent trained on our guides, official docs, and per‑node chat history to give precise answers for each specific network.
+            </p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 pt-4">
+          <span class="text-xs px-2 py-1 rounded-full bg-[#7053ff]/10 text-[#7053ff]">AI</span>
+          <a href="#" data-feature="ai"
+             class="feature-more text-[#7053ff] text-sm font-medium hover:underline inline-block mt-3">
+            Learn more →
+          </a>
+        </div>
+      </article>
+
+    <!-- Profit RPC -->
+    <article class="card bg-white border border-gray-200 rounded-2xl p-8">
+        <div class="flex items-start gap-4 mb-4">
+          <!-- Icon: RPC/node -->
+          <img src="assets/feature/Trpc.svg" alt="RPC Feature" class="w-10 h-10  ">
+          <div>
+            <h3 class="text-xl font-bold">Profit RPC</h3>
+            <p class="text-gray-600">
+              Private ETH Sepolia RPC for only $5/month. Stable endpoints for your nodes without public bottlenecks <b>(Not included in subscription)</b>.
+            </p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 pt-4">
+          <span class="text-xs px-2 py-1 rounded-full bg-[#7053ff]/10 text-[#7053ff]">Service</span>
+          <a href="#" data-feature="rpc"
+             class="feature-more text-[#7053ff] text-sm font-medium hover:underline inline-block mt-3">
+            Learn more →
+          </a>
+        </div>
+      </article>
+
+      <!-- Profit Monitor -->
+      <article class="card bg-white border border-gray-200 rounded-2xl p-8">
+        <div class="flex items-start gap-4 mb-4">
+          <!-- Icon: parser/scroll -->
+          <img src="assets/feature/CloudMonitoring.svg" alt="Parser Bot" class="w-10 h-10  ">
+          <div>
+            <h3 class="text-xl font-bold">Profit Nodes Monitor</h3>
+            <p class="text-gray-600">
+              Monitors project Discords, extracts key updates, summarizes them with AI, and delivers bite‑size insights to our private channel.
+            </p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 pt-4">
+          <span class="text-xs px-2 py-1 rounded-full bg-[#7053ff]/10 text-[#7053ff]">Monitoring</span>
+          <a href="https://t.me/ProfitNodes_Monitor_bot" data-feature="monitor"
+             class="feature-more text-[#7053ff] text-sm font-medium hover:underline inline-block mt-3">
+            Learn more →
+          </a>
+        </div>
+      </article>
+  </div>
+</section>
+
+<!-- Modal (единственный экземпляр, наполняется динамически) -->
+<div id="featureModal" class="fixed inset-0 z-50 hidden items-center justify-center">
+  <!-- overlay -->
+  <div id="featureModalOverlay" class="absolute inset-0 bg-black/60"></div>
+
+  <!-- dialog -->
+  <div role="dialog" aria-modal="true" aria-labelledby="fm-title"
+       class="relative bg-white w-[92%] max-w-4xl mx-auto rounded-2xl shadow-xl p-6 md:p-8">
+    <button id="featureModalClose"
+            class="absolute top-3 right-3 p-2 rounded-full hover:bg-gray-100"
+            aria-label="Close">
+      <svg width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="m12 10.586 4.95-4.95 1.414 1.414L13.414 12l4.95 4.95-1.414 1.414L12 13.414l-4.95 4.95-1.414-1.414L10.586 12 5.636 7.05l1.414-1.414z"/></svg>
+    </button>
+
+    <div class="grid md:grid-cols-2 gap-6 md:gap-8 items-center">
+      <!-- CAROUSEL -->
+      <div class="relative w-full">
+        <div id="fm-carousel" class="overflow-hidden rounded-xl bg-gray-50 aspect-video">
+          <!-- slides будут вставлены JS -->
+        </div>
+
+        <!-- Prev/Next -->
+        <button id="fm-prev"
+                class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white shadow rounded-full w-10 h-10 flex items-center justify-center">
+          ‹
+        </button>
+        <button id="fm-next"
+                class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white shadow rounded-full w-10 h-10 flex items-center justify-center">
+          ›
+        </button>
+
+        <!-- dots -->
+        <div id="fm-dots" class="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2"></div>
+      </div>
+
+      <!-- TEXT -->
+      <div>
+        <h3 id="fm-title" class="text-2xl font-bold mb-3">Title</h3>
+        <p id="fm-desc" class="text-gray-700 mb-6">Description</p>
+        <a id="fm-cta" href="https://t.me/ProfitNodes_bot" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 px-5 py-3 rounded-full text-white"
+           style="background:#7053ff">
+          Try in Telegram
+          <svg width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="m13 5 7 7-7 7v-4H4v-6h9V5Z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+		// mobile menu
+	const burger = document.getElementById('burger');
+	const mnav = document.getElementById('mnav');
+	burger?.addEventListener('click', () => mnav.classList.toggle('hidden'));
+  // --- Данные фич: можно img (одна картинка) ИЛИ images (массив для карусели)
+  const featureData = {
+    GPT: {
+      title: 'Profit Nodes GPT',
+      desc: 'Our GPT bot helps you set up nodes step by step and solves related problems. Available to private chat subscribers.',
+      images: [
+        'assets/feature/Airbrush-OBJECT-REMOVER-1755808801665.jpg',
+        'assets/feature/2025-08-21_23-59-14.png',
+        'assets/feature/2025-08-21_23-59-47.png'
+      ],
+      cta: 'https://t.me/profit_nodes_helper_bot'
+    },
+    parser: {
+      title: 'Profit Parser Bot',
+      desc: 'Automatically parses Discord projects, compresses updates using AI, and sends only the most important information to a private channel.',
+      images: [
+        'assets/feature/parseBot.png',
+        'assets/feature/2025-08-21_23-31-29.png',
+        'assets/feature/2025-08-21_23-32-59.png'
+      ],
+      cta: 'https://t.me/ProfitNodes_bot'
+    },
+    ai: {
+      title: 'Profit AI Helper',
+      desc: 'An AI agent trained using our guides, official documentation, and chat history for each node provides accurate answers specific to each network.',
+      img : 'assets/feature/AI_helper.png',
+      cta: 'https://t.me/ProfitNodes_bot'
+    },
+    rpc: {
+      title: 'Profit RPC',
+      desc: 'Just write to us @anaconda_player, send a payment of 5 USDT on the Arbitrum One network, and your IP address of the server you need RPC on.',
+      images: [
+        'assets/feature/RPC.png',
+        'assets/feature/2025-08-21_23-48-09.png',
+        'assets/feature/2025-08-21_23-51-10.png',
+        'assets/feature/2025-08-21_23-52-10.png'
+      ],
+      cta: 'https://t.me/anaconda_player'
+    },
+    monitor: {
+      title: 'Profit Nodes Monitor',
+      desc: 'Monitor all nodes on the server with our bot: server load, installed nodes, auto‑restart of crashed ones.',
+      images: [
+        'assets/feature/monitor.jpg',
+        'assets/feature/gpt1.jpg',
+        'assets/feature/gpt2.jpg'
+      ],
+      cta: 'https://t.me/ProfitNodes_bot'
+    }
+  };
+
+  // --- Элементы модалки
+  const modal      = document.getElementById('featureModal');
+  const overlay    = document.getElementById('featureModalOverlay');
+  const closeBtn   = document.getElementById('featureModalClose');
+  const titleEl    = document.getElementById('fm-title');
+  const descEl     = document.getElementById('fm-desc');
+  const ctaEl      = document.getElementById('fm-cta');
+  const carouselEl = document.getElementById('fm-carousel');
+  const dotsEl     = document.getElementById('fm-dots');
+  const prevBtn    = document.getElementById('fm-prev');
+  const nextBtn    = document.getElementById('fm-next');
+
+  let slides = [];       // массив путей
+  let slideIdx = 0;      // текущий индекс
+  let touchStartX = 0;   // для свайпа
+
+  // --- helpers
+  function renderCarousel() {
+    // очистка
+    carouselEl.innerHTML = '';
+    dotsEl.innerHTML = '';
+
+    // одинарная картинка? делаем псевдо-карусель с 1 слайдом
+    if (!slides || slides.length === 0) slides = [];
+    if (slides.length === 0) return;
+
+    // слайды
+    slides.forEach((src, i) => {
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = `slide-${i+1}`;
+      img.className = 'w-full h-full object-contain absolute inset-0 transition-opacity duration-300 ' +
+                      (i === slideIdx ? 'opacity-100' : 'opacity-0');
+      carouselEl.appendChild(img);
+    });
+
+    // dots
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'w-2.5 h-2.5 rounded-full ' + (i===slideIdx ? 'bg-[#7053ff]' : 'bg-gray-300');
+      dot.addEventListener('click', () => { slideIdx = i; renderCarousel(); });
+      dotsEl.appendChild(dot);
+    });
+
+    // видимость стрелок
+    const multiple = slides.length > 1;
+    prevBtn.style.display = multiple ? '' : 'none';
+    nextBtn.style.display = multiple ? '' : 'none';
+  }
+
+  function showNext() {
+    if (!slides.length) return;
+    slideIdx = (slideIdx + 1) % slides.length;
+    renderCarousel();
+  }
+  function showPrev() {
+    if (!slides.length) return;
+    slideIdx = (slideIdx - 1 + slides.length) % slides.length;
+    renderCarousel();
+  }
+
+  // --- открытие/закрытие
+  function openFeatureModal(key) {
+    const data = featureData[key];
+    if (!data) return;
+
+    // текст
+    titleEl.textContent = data.title;
+    descEl.textContent  = data.desc;
+    ctaEl.href          = data.cta || 'https://t.me/ProfitNodes_bot';
+
+    // картинки
+    if (Array.isArray(data.images)) {
+      slides = data.images.slice();
+    } else if (data.img) {
+      slides = [data.img];
+    } else {
+      slides = [];
+    }
+    slideIdx = 0;
+    renderCarousel();
+
+    // показать
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    ctaEl.focus();
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeFeatureModal() {
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+    document.body.style.overflow = '';
+  }
+
+  // --- listeners
+  document.querySelectorAll('.feature-more').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const key = link.getAttribute('data-feature');
+      openFeatureModal(key);
+    });
+  });
+
+  overlay.addEventListener('click', closeFeatureModal);
+  closeBtn.addEventListener('click', closeFeatureModal);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeFeatureModal();
+    if (!modal.classList.contains('hidden')) {
+      if (e.key === 'ArrowRight') showNext();
+      if (e.key === 'ArrowLeft')  showPrev();
+    }
+  });
+
+  nextBtn.addEventListener('click', showNext);
+  prevBtn.addEventListener('click', showPrev);
+
+  // свайп на мобилках
+  carouselEl.addEventListener('touchstart', e => touchStartX = e.changedTouches[0].clientX, {passive:true});
+  carouselEl.addEventListener('touchend',   e => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 40) (dx < 0 ? showNext() : showPrev());
+  }, {passive:true});
+</script>
+
+    <!-- CTA -->
+    <div class="text-center mt-14">
+      <a href="https://t.me/ProfitNodes_bot" class="inline-flex items-center gap-2 px-6 py-3 rounded-full text-white font-medium"
+         style="background:#7053ff">
+        Explore in private chat
+        <svg width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="m13 5l7 7l-7 7v-4H4v-6h9V5Z"/></svg>
+      </a>
+      <p class="text-sm text-gray-500 mt-3">Access to tools is included with your membership.</p>
+    </div>
+  </section>
+
+    <!-- ===== Footer ===== -->
+  <footer class="bg-gray-100 text-sm text-black px-4 sm:px-6 py-10">
+    <div class="grid md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+      <div class="flex items-center gap-2">
+        <img src="assets/logo.svg" class="h-7 md:h-8 object-contain" />
+        <p class="text-base md:text-lg font-bold">Profit Nodes</p>
+      </div>
+      <div>
+        <h4 class="font-bold mb-2">Who we are</h4>
+        <ul class="space-y-1">
+          <li><a href="index.html">About Us</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="community.html">Team</a></li>
+          <li><a href="subscription.html">Memberships</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold mb-2">Public</h4>
+        <ul class="space-y-1">
+          <li><a href="https://teletype.in/@anton_profit">Teletype</a></li>
+          <li><a href="https://www.youtube.com/c/AntonProfiT">Youtube</a></li>
+          <li><a href="https://t.me/ProfiT_Mafia_Chat">Chat</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold mb-2">Join the community</h4>
+        <ul class="space-y-1">
+          <li><a href="https://x.com/profit_nodes">Twitter</a></li>
+          <li><a href="https://t.me/ProfitNodes_bot">Telegram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-8 text-center text-gray-500">
+      <p>Copyright © 2025</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="assets/favicons/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/favicons/favicon-64x64.png">
+  <link rel="icon" type="image/png" sizes="128x128" href="assets/favicons/favicon-128x128.png">
+  <link rel="icon" type="image/png" sizes="256x256" href="assets/favicons/favicon-256x256.png">
+    
+  <!-- Android/Chrome icons -->
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/favicons/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/favicons/android-chrome-512x512.png">
+    
+  <!-- Apple Touch Icon (iOS) -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/android-chrome-192x192.png">
+    
+  <!-- Web App Manifest -->
+  <link rel="manifest" href="assets/favicons/site.webmanifest">
+  <title>Profit Nodes — Community</title>
+
+  <!-- Tailwind v3 CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root { --brand:#7053ff; }
+    /* Фон с блюром (кросс‑браузерно) */
+    .blur-bg{
+      background: rgba(255,255,255,.8);
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+    }
+    /* Плавное появление блоков */
+    .reveal { opacity:.0; transform: translateY(12px); transition: .6s ease; }
+    .reveal.is-visible{ opacity:1; transform: translateY(0); }
+  </style>
+</head>
+<body class="bg-white text-black antialiased">
+
+  <!-- ===== Header ===== -->
+  <header class="sticky top-0 z-30 bg-white/80 backdrop-blur border-b border-gray-100">
+  	<div class="max-w-7xl mx-auto px-4 sm:px-6 py-2.5 md:py-3 flex items-center justify-between">
+    <!-- Left: Logo -->
+    	<a href="index.html" class="flex items-center gap-2 md:gap-3">
+      <!-- меньше на md, обычный на lg -->
+      	<img src="assets/logo.svg" alt="Logo"
+           class="h-8 w-8 md:h-9 md:w-9 lg:h-12 lg:w-12 object-contain" />
+      	<span class="font-bold text-base md:text-[15px] lg:text-xl">Profit Nodes</span>
+    	</a>
+
+    <!-- Center nav (desktop) -->
+    <!-- на md показываем, делаем компактнее; на lg возвращаем обычные отступы и размер -->
+		<nav class="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-4 md:text-[13px] lg:gap-8 lg:text-base">
+			<a href="index.html" class="relative hover:text-[#7053ff]  after:absolute after:left-0 after:bottom-[-4px] after:w-0 after:h-[2px] after:bg-[#7053ff] after:transition-all after:duration-500 hover:after:w-full">About us</a>
+			<a href="projects.html" class="relative hover:text-[#7053ff] after:absolute after:left-0 after:bottom-[-4px] after:w-0 after:h-[2px] after:bg-[#7053ff] after:transition-all after:duration-500 hover:after:w-full">Projects</a>
+			<a href="features.html" class="relative hover:text-[#7053ff] after:absolute after:left-0 after:bottom-[-4px] after:w-0 after:h-[2px] after:bg-[#7053ff] after:transition-all after:duration-500 hover:after:w-full">Features</a>
+			<a href="subscription.html" class="relative hover:text-[#7053ff] after:absolute after:left-0 after:bottom-[-4px] after:w-0 after:h-[2px] after:bg-[#7053ff] after:transition-all after:duration-500 hover:after:w-full">Subscription</a>
+			<a href="community.html" class="relative hover:text-[#7053ff] font-semibold text-[#7053ff] after:absolute after:left-0 after:bottom-[-4px] after:w-0 after:h-[2px] after:bg-[#7053ff] after:transition-all after:duration-500 hover:after:w-full">Community</a>
+		</nav>
+
+    <!-- Right: language + CTA -->
+    <div class="hidden md:flex items-center gap-2 md:gap-3">
+      <!-- язык: компактнее на md, обычный на lg -->
+      <div class="relative inline-block">
+        <!--<select id="lang"-->
+        <!--  class="appearance-none bg-white border border-gray-300-->
+        <!--         text-[13px] md:px-3 md:py-1.5 md:pr-7-->
+        <!--         lg:text-sm lg:px-4 lg:py-2 lg:pr-8-->
+        <!--         rounded-full shadow-md focus:outline-none cursor-pointer text-gray-600">-->
+        <!--  <option value="en" selected>ENG</option>-->
+        <!--  <option value="ru">RUS</option>-->
+        <!--</select>-->
+        <img src="assets/main/ArrowDownFill.svg" alt="arrow"
+             class="pointer-events-none absolute right-2 lg:right-3 top-1/2 -translate-y-1/2 w-3 h-3 opacity-60" />
+      </div>
+
+      <!-- CTA: компактнее на md, обычная на lg -->
+      <a href="https://t.me/ProfitNodes_bot"
+         class="text-white bg-[color:var(--brand)] hover:opacity-90
+                rounded-full
+                md:px-3 md:py-1.5 md:text-[13px]
+                lg:px-4 lg:py-2 lg:text-base">
+        Join now
+      </a>
+    </div>
+
+    <!-- Burger (mobile)  -->
+    <button id="burger" class="md:hidden p-2 rounded-md border border-gray-200">
+      <svg width="20" height="20" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mnav" class="md:hidden hidden border-t border-gray-100">
+    <div class="px-4 py-3 flex flex-col gap-3">
+      <a href="index.html" class="py-1">About us</a>
+      <a href="projects.html" class="py-1">Projects</a>
+      <a href="features.html" class="py-1">Features</a>
+      <a href="subscription.html" class="py-1">Subscription</a>
+      <a href="community.html" class="py-1">Community</a>
+      <div class="flex items-center justify-between pt-2">
+        <div class="relative inline-block">
+          <select
+            class="appearance-none bg-white border border-gray-300 text-sm px-3 py-2 pr-7 rounded-full shadow-md text-gray-600">
+            <option value="en" selected>ENG</option>
+            <option value="ru">RUS</option>
+          </select>
+          <img src="assets/ArrowDownFill.svg"
+               class="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 w-3 h-3 opacity-60" />
+        </div>
+        <a href="https://t.me/ProfitNodes_bot"
+           class="text-white px-4 py-2 rounded-full bg-[color:var(--brand)]">Join now</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+  <!-- ===== Hero ===== -->
+  <section class="relative text-center px-6 py-14 sm:py-18 md:py-24">
+    <div class="absolute inset-0 -z-10"
+         style="background: radial-gradient(60% 60% at 50% 0%, rgba(112,83,255,.12) 0%, rgba(112,83,255,0) 60%);"></div>
+    <h1 class="font-extrabold leading-tight mb-4" style="font-size:clamp(28px,5vw,56px)">
+      Our Community
+    </h1>
+    <p class="max-w-2xl mx-auto text-gray-600">
+      People, results, feedback and partnerships that fuel Profit Nodes.
+    </p>
+  </section>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 space-y-16 sm:space-y-20 md:space-y-24">
+
+    <!-- ===== 1) Team (7 people) ===== -->
+    <section class="reveal">
+      <h2 class="text-2xl sm:text-3xl font-bold mb-8">Our team</h2>
+
+      <div class="grid gap-6 sm:gap-8 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
+        <!-- пример карточки; укажи реальные пути к аватаркам -->
+        <!-- 1 -->
+        <article class="bg-white border border-gray-200 rounded-2xl p-6 flex flex-col items-center text-center">
+          <img src="assets/community/Anton.jpg" alt="member" class="w-24 h-24 rounded-full object-cover shadow mb-4">
+          <div class="font-semibold">Anton</div>
+          <div class="text-gray-500 text-sm mb-3">Founder / Lead</div>
+					<div class="flex items-center justify-between gap-4">
+						<a href="https://t.me/Anton_ProfiT"><img src="assets/community/Telegram.svg" alt="Telegram" class="w-6 h-6"></a>
+						<a href="https://x.com/AntonProfiT"><img src="assets/community/Twitter.svg" alt="Twitter (X)" class="w-6 h-6"></a>
+						<a href="www.youtube.com/AntonProfiT"><img src="assets/community/Youtube.svg" alt="Youtube" class="w-8 h-8"></a>
+					</div>
+        </article>
+        <!-- 2 -->
+        <article class="bg-white border border-gray-200 rounded-2xl p-6 flex flex-col items-center text-center">
+          <img src="assets/community/Matwey.jpg" class="w-24 h-24 rounded-full object-cover shadow mb-4" alt="">
+          <div class="font-semibold">Matwey</div>	
+          <div class="text-gray-500 text-sm mb-3">CTO / Back-end developer</div>
+					<div class="flex items-center justify-between gap-4">
+						<a href="https://t.me/Matwei_s"><img src="assets/community/Telegram.svg" alt="Telegram" class="w-6 h-6"></a>
+						<a href=""><img src="assets/community/Twitter.svg" alt="Twitter (X)" class="w-6 h-6"></a>
+						<a href=""><img src="assets/community/Github.svg" alt="Github" class="w-6 h-6"></a>
+					</div>
+        </article>
+        <!-- 3 -->
+        <article class="bg-white border border-gray-200 rounded-2xl p-6 flex flex-col items-center text-center">
+          <img src="assets/community/Danil.jpg" class="w-24 h-24 rounded-full object-cover shadow mb-4" alt="">
+          <div class="font-semibold">Danil</div>
+          <div class="text-gray-500 text-sm mb-3">Front-end developer</div>
+					<div class="flex items-center justify-between gap-4">
+						<a href="https://t.me/Danzeliti"><img src="assets/community/Telegram.svg" alt="Telegram" class="w-6 h-6"></a>
+						<a href="https://x.com/FinvestP"><img src="assets/community/Twitter.svg" alt="Twitter (X)" class="w-6 h-6"></a>
+						<a href="https://github.com/Danzelitos"><img src="assets/community/Github.svg" alt="Github" class="w-6 h-6"></a>
+					</div>
+        </article>
+        <!-- 4 -->
+        <article class="bg-white border border-gray-200 rounded-2xl p-6 flex flex-col items-center text-center">
+          <img src="assets/community/YuryK.jpg" class="w-24 h-24 rounded-full object-cover shadow mb-4" alt="">
+          <div class="font-semibold">Yury</div>
+          <div class="text-gray-500 text-sm mb-3">DevOps</div>
+					<div class="flex items-center justify-between gap-4">
+						<a href="https://t.me/mainKaizer"><img src="assets/community/Telegram.svg" alt="Telegram" class="w-6 h-6"></a>
+						<a href="https://x.com/ILesnitser"><img src="assets/community/Twitter.svg" alt="Twitter (X)" class="w-6 h-6"></a>
+						<a href="https://github.com/YKaizer"><img src="assets/community/Github.svg" alt="Github" class="w-6 h-6"></a>
+					</div>
+        </article>
+        <!-- 5 -->
+        <article class="bg-white border border-gray-200 rounded-2xl p-6 flex flex-col items-center text-center">
+          <img src="assets/community/Vitalii.PNG" class="w-24 h-24 rounded-full object-cover shadow mb-4" alt="">
+          <div class="font-semibold">Vitalii</div>
+          <div class="text-gray-500 text-sm mb-3">Automation / SMM</div>
+					<div class="flex items-center justify-between gap-4">
+						<a href="https://t.me/vitalya_crypto"><img src="assets/community/Telegram.svg" alt="Telegram" class="w-6 h-6"></a>
+						<!-- <a href=""><img src="assets/community/Twitter.svg" alt="Twitter (X)" class="w-6 h-6"></a> -->
+						<a href="https://github.com/nodesresearcher"><img src="assets/community/Github.svg" alt="Github" class="w-6 h-6"></a>
+					</div>
+        </article>
+        <!-- 6 -->
+        <article class="bg-white border border-gray-200 rounded-2xl p-6 flex flex-col items-center text-center">
+          <img src="assets/community/Dima.jpg" class="w-24 h-24 rounded-full object-cover shadow mb-4" alt="">
+          <div class="font-semibold">Dmitry</div>
+          <div class="text-gray-500 text-sm mb-3">Community Manager</div>
+					<div class="flex items-center justify-between gap-4">
+						<a href="https://t.me/MityaTgm"><img src="assets/community/Telegram.svg" alt="Telegram" class="w-6 h-6"></a>
+						<!-- <a href=""><img src="assets/community/Twitter.svg" alt="Twitter (X)" class="w-6 h-6"></a> -->
+						<!-- <a href=""><img src="assets/community/Github.svg" alt="Github" class="w-6 h-6"></a> -->
+					</div>
+        </article>
+        <!-- 7 -->
+        <article class="bg-white border border-gray-200 rounded-2xl p-6 flex flex-col items-center text-center lg:col-span-1 sm:col-span-1 col-span-2">
+          <img src="assets/community/Sergey.jpg" class="w-24 h-24 rounded-full object-cover shadow mb-4" alt="">
+          <div class="font-semibold">Sergey</div>
+          <div class="text-gray-500 text-sm mb-3">AI / Research</div>
+					<div class="flex items-center justify-between gap-4">
+						<a href="https://t.me/rudija"><img src="assets/community/Telegram.svg" alt="Telegram" class="w-6 h-6"></a>
+						<a href="https://x.com/ochafrin"><img src="assets/community/Twitter.svg" alt="Twitter (X)" class="w-6 h-6"></a>
+						<a href="https://github.com/Sshadow84"><img src="assets/community/Github.svg" alt="Github" class="w-6 h-6"></a>
+					</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== 2) Experience / Results ===== -->
+    <section class="reveal">
+      <h2 class="text-2xl sm:text-3xl font-bold mb-6">Our track‑record</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white border border-gray-200 rounded-2xl p-6">
+          <h3 class="text-lg font-semibold mb-2">Channel age</h3>
+          <p class="text-gray-600">We’ve been running for <b class="text-[color:var(--brand)]">6 months</b>.</p>
+        </div>
+        <div class="bg-white border border-gray-200 rounded-2xl p-6">
+          <h3 class="text-lg font-semibold mb-2">Education</h3>
+          <p class="text-gray-600">Trained <b class="text-[color:var(--brand)]">500+</b> members via guides and support.</p>
+        </div>
+        <div class="bg-white border border-gray-200 rounded-2xl p-6">
+          <h3 class="text-lg font-semibold mb-2">Streams</h3>
+          <p class="text-gray-600">Held <b class="text-[color:var(--brand)]">40+</b> live streams & workshops.</p>
+        </div>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6 mt-6">
+        <div class="bg-white border border-gray-200 rounded-2xl p-6">
+          <h3 class="text-lg font-semibold mb-2">Testnets</h3>
+          <p class="text-gray-600">Participating in <b class="text-[color:var(--brand)]">30+</b> testnets.</p>
+        </div>
+        <div class="bg-white border border-gray-200 rounded-2xl p-6">
+          <h3 class="text-lg font-semibold mb-2">Airdrops</h3>
+          <p class="text-gray-600">Received <b class="text-[color:var(--brand)]">4</b> airdrops for running nodes.</p>
+        </div>
+        <div class="bg-white border border-gray-200 rounded-2xl p-6">
+          <h3 class="text-lg font-semibold mb-2">Community size</h3>
+          <p class="text-gray-600"><b class="text-[color:var(--brand)]">≈150</b> active members.</p>
+        </div>
+      </div>
+    </section>
+
+<!-- ===== 3) Testimonials (cards carousel) ===== -->
+<section class="reveal">
+  <div class="flex items-center justify-between mb-6">
+    <h2 class="text-2xl sm:text-3xl font-bold">Member feedback</h2>
+    <span class="text-gray-500">200+ positive reviews</span>
+  </div>
+
+<div class="relative">
+  <!-- Viewport -->
+  <div id="tstViewport" class="overflow-hidden">
+    <div id="tstTrack" class="flex transition-transform duration-500 will-change-transform"></div>
+  </div>
+
+  <!-- Controls + Dots -->
+  <div class="flex items-center justify-center gap-4 mt-4">
+    <!-- Prev -->
+    <svg id="tstPrev" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path fill="#7053ff" d="m14 5l-5 5l5 5l-1 2l-7-7l7-7z"/></svg>
+
+    <!-- Dots -->
+    <div id="tstDots" class="flex items-center justify-center gap-2"></div>
+
+    <!-- Next -->
+    <svg id="tstNext" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path fill="#7053ff" d="m6 15l5-5l-5-5l1-2l7 7l-7 7z"/></svg>
+  </div>
+</div>
+
+</section>
+
+
+
+
+        <!-- Dots (JS) -->
+        <div id="dots" class="flex items-center justify-center gap-2 mt-4"></div>
+      </div>
+    </section>
+
+    <!-- ===== 4) Validators & Partnerships ===== -->
+    <section class="reveal">
+      <h2 class="text-2xl sm:text-3xl font-bold mb-6">Validators & Partnerships</h2>
+
+      <div class="grid md:grid-cols-2 gap-10">
+        <!-- Validators -->
+        <div class="bg-white border border-gray-200 rounded-2xl p-6">
+          <h3 class="text-xl font-semibold mb-3">Mainnet validators</h3>
+          <p class="text-gray-600 mb-10">We became validators in some networks.</p>
+          <div class="grid grid-cols-3 gap-4">
+            <!-- замените на реальные логотипы проектов -->
+            <img src="assets/projects/hippo.png" class="h-12 object-contain" alt="">
+            <img src="assets/projects/massa.png" class="h-12 object-contain" alt="">
+            <img src="assets/projects/gravity.jpg" class="h-12 object-contain rounded-2xl" alt="">
+            <!-- <img src="assets/community/validators/v4.png" class="h-12 object-contain" alt="">
+            <img src="assets/community/validators/v5.png" class="h-12 object-contain" alt=""> -->
+          </div>
+        </div>
+
+        <!-- Partnerships -->
+        <div class="bg-white border border-gray-200 rounded-2xl p-6">
+          <h3 class="text-xl font-semibold mb-3">Partnerships</h3>
+          <p class="text-gray-600 mb-5">
+            Agreed on partnerships with projects; some rewarded our best leaderboard
+            members with unique Discord roles.
+          </p>
+          <div class="grid grid-cols-3 gap-4">
+            <img src="assets/projects/aztec.png" class="h-12 object-contain rounded-2xl" alt="">
+            <img src="assets/projects/dill.png" class="h-12 object-contain rounded-2xl" alt="">
+            <img src="assets/community/partners/p3.png" class="h-12 object-contain" alt="">
+            <img src="assets/community/partners/p4.png" class="h-12 object-contain" alt="">
+            <img src="assets/community/partners/p5.png" class="h-12 object-contain" alt="">
+            <img src="assets/community/partners/p6.png" class="h-12 object-contain" alt="">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="reveal">
+      <div class="bg-[color:var(--brand)] text-white rounded-3xl p-8 md:p-10 shadow-lg flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+        <div class="text-2xl md:text-3xl font-bold">Join the community</div>
+        <a href="https://t.me/ProfitNodes_bot" target="_blank"
+           class="inline-flex px-6 py-3 rounded-full bg-white text-black hover:opacity-90">
+          Join now
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="bg-gray-100 text-sm text-black px-4 sm:px-6 py-10">
+    <div class="grid md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+      <div class="flex items-center gap-2">
+        <img src="assets/logo.svg" class="h-7 md:h-8 object-contain" />
+        <p class="text-base md:text-lg font-bold">Profit Nodes</p>
+      </div>
+      <div>
+        <h4 class="font-bold mb-2">Who we are</h4>
+        <ul class="space-y-1">
+          <li><a href="index.html">About Us</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="community.html">Team</a></li>
+          <li><a href="subscription.html">Memberships</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold mb-2">Public</h4>
+        <ul class="space-y-1">
+          <li><a href="https://teletype.in/@anton_profit">Teletype</a></li>
+          <li><a href="https://www.youtube.com/c/AntonProfiT">Youtube</a></li>
+          <li><a href="https://t.me/ProfiT_Mafia_Chat">Chat</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold mb-2">Join the community</h4>
+        <ul class="space-y-1">
+          <li><a href="https://x.com/profit_nodes">Twitter</a></li>
+          <li><a href="https://t.me/ProfitNodes_bot">Telegram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-8 text-center text-gray-500">
+      <p>Copyright © 2025</p>
+    </div>
+  </footer>
+
+  <!-- ===== Scripts ===== -->
+
+	<script src="community.js"></script>
+</body>
+</html>

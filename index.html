@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="assets/favicons/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/favicons/favicon-64x64.png">
+  <link rel="icon" type="image/png" sizes="128x128" href="assets/favicons/favicon-128x128.png">
+  <link rel="icon" type="image/png" sizes="256x256" href="assets/favicons/favicon-256x256.png">
+    
+  <!-- Android/Chrome icons -->
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/favicons/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/favicons/android-chrome-512x512.png">
+    
+  <!-- Apple Touch Icon (iOS) -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/android-chrome-192x192.png">
+    
+  <!-- Web App Manifest -->
+  <link rel="manifest" href="assets/favicons/site.webmanifest">
+  <meta name="theme-color" content="#7053ff">
+  <title>Profit Nodes</title>
+  <!-- Tailwind v3 (CDN) -->
+  <link rel="stylesheet" href="main.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-white text-black antialiased">
+  <!-- ===== Header ===== -->
+  <header class="sticky top-0 z-30 bg-white/80 backdrop-blur border-b border-gray-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-2.5 md:py-3 flex items-center justify-between">
+    <!-- Left: Logo -->
+    <a href="main.html" class="flex items-center gap-2 md:gap-3">
+      <!-- меньше на md, обычный на lg -->
+      <img src="assets/logo.svg" alt="Logo"
+           class="h-8 w-8 md:h-9 md:w-9 lg:h-12 lg:w-12 object-contain" />
+      <span class="font-bold text-base md:text-[15px] lg:text-xl">Profit Nodes</span>
+    </a>
+
+    <!-- Center nav (desktop) -->
+    <!-- на md показываем, делаем компактнее; на lg возвращаем обычные отступы и размер -->
+<nav class="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-4 md:text-[13px] lg:gap-8 lg:text-base">
+  <a href="index.html" class="relative hover:text-[#7053ff] font-semibold text-[#7053ff] after:absolute after:left-0 after:bottom-[-4px] after:w-0 after:h-[2px] after:bg-[#7053ff] after:transition-all after:duration-500 hover:after:w-full">About us</a>
+  <a href="projects.html" class="relative hover:text-[#7053ff] after:absolute after:left-0 after:bottom-[-4px] after:w-0 after:h-[2px] after:bg-[#7053ff] after:transition-all after:duration-500 hover:after:w-full">Projects</a>
+  <a href="features.html" class="relative hover:text-[#7053ff] after:absolute after:left-0 after:bottom-[-4px] after:w-0 after:h-[2px] after:bg-[#7053ff] after:transition-all after:duration-500 hover:after:w-full">Features</a>
+  <a href="subscription.html" class="relative hover:text-[#7053ff] after:absolute after:left-0 after:bottom-[-4px] after:w-0 after:h-[2px] after:bg-[#7053ff] after:transition-all after:duration-500 hover:after:w-full">Subscription</a>
+  <a href="community.html" class="relative hover:text-[#7053ff] after:absolute after:left-0 after:bottom-[-4px] after:w-0 after:h-[2px] after:bg-[#7053ff] after:transition-all after:duration-500 hover:after:w-full">Community</a>
+</nav>
+
+
+    <!-- Right: language + CTA -->
+    <div class="hidden md:flex items-center gap-2 md:gap-3">
+      <!-- язык: компактнее на md, обычный на lg -->
+      <div class="relative inline-block">
+        <!--<select id="lang"-->
+        <!--  class="appearance-none bg-white border border-gray-300-->
+        <!--         text-[13px] md:px-3 md:py-1.5 md:pr-7-->
+        <!--         lg:text-sm lg:px-4 lg:py-2 lg:pr-8-->
+        <!--         rounded-full shadow-md focus:outline-none cursor-pointer text-gray-600">-->
+        <!--  <option value="en" selected>ENG</option>-->
+        <!--  <option value="ru">RUS</option>-->
+        <!--</select>-->
+        <img src="assets/main/ArrowDownFill.svg" alt="arrow"
+             class="pointer-events-none absolute right-2 lg:right-3 top-1/2 -translate-y-1/2 w-3 h-3 opacity-60" />
+      </div>
+
+      <!-- CTA: компактнее на md, обычная на lg -->
+      <a href="https://t.me/ProfitNodes_bot"
+         class="text-white bg-[color:var(--brand)] hover:opacity-90
+                rounded-full
+                md:px-3 md:py-1.5 md:text-[13px]
+                lg:px-4 lg:py-2 lg:text-base">
+        Join now
+      </a>
+    </div>
+
+    <!-- Burger (mobile)  -->
+    <button id="burger" class="md:hidden p-2 rounded-md border border-gray-200">
+      <svg width="20" height="20" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mnav" class="md:hidden hidden border-t border-gray-100">
+    <div class="px-4 py-3 flex flex-col gap-3">
+      <a href="index.html" class="py-1">About us</a>
+      <a href="projects.html" class="py-1">Projects</a>
+      <a href="features.html" class="py-1">Features</a>
+      <a href="subscription.html" class="py-1">Subscription</a>
+      <a href="community.html" class="py-1">Community</a>
+      <div class="flex items-center justify-between pt-2">
+        <div class="relative inline-block">
+          <select
+            class="appearance-none bg-white border border-gray-300 text-sm px-3 py-2 pr-7 rounded-full shadow-md text-gray-600">
+            <option value="en" selected>ENG</option>
+            <option value="ru">RUS</option>
+          </select>
+          <img src="assets/main/ArrowDownFill.svg"
+               class="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 w-3 h-3 opacity-60" />
+        </div>
+        <a href="https://t.me/ProfitNodes_bot"
+           class="text-white px-4 py-2 rounded-full bg-[color:var(--brand)]">Join now</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+  <!-- ===== Hero ===== -->
+  <section class="text-center px-4 sm:px-6 py-14 sm:py-18 md:py-24">
+    <div class="absolute inset-0 -z-10" style="background: radial-gradient(60% 60% at 50% 0%, rgba(112,83,255,.18) 0%, rgba(112,83,255,0) 60%);"></div>
+		
+		<div class="logo sweep mx-auto mb-6 w-32 h-32 sm:w-20 sm:h-20 md:w-32 md:h-32 relative"></div>
+
+    <div class="max-w-[48rem] mx-auto">
+      <h1 class="font-extrabold mb-8 leading-tight"
+          style="font-size: clamp(28px, 5vw, 56px);">
+        Unlock the power of nodes and maximize your profit
+      </h1>
+      <a href="subscription.html" class="inline-flex items-center justify-center px-6 sm:px-7 py-3 rounded-full text-white bg-[color:var(--brand)] hover:opacity-90">
+        Explore us
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== Features (3 items) ===== -->
+  <section class="px-4 sm:px-6 py-12">
+    <div class="max-w-6xl mx-auto grid gap-10 md:gap-12 md:grid-cols-3">
+      <!-- item -->
+      <div class="flex items-start gap-4 sm:gap-5">
+        <img src="assets/main/Icon_headset.png" alt="Support" class="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 mt-1 object-contain" />
+        <div>
+          <h3 class="text-base sm:text-lg md:text-xl font-semibold">Responsive support</h3>
+          <p class="text-sm sm:text-base text-gray-600">An individual approach to each user.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 sm:gap-5">
+        <img src="assets/main/Icon_scroll.png" alt="Guides" class="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 mt-1 object-contain" />
+        <div>
+          <h3 class="text-base sm:text-lg md:text-xl font-semibold">Guide to installing nodes</h3>
+          <p class="text-sm sm:text-base text-gray-600">Detailed guides and convenient scripts with step‑by‑step instructions for installing nodes.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 sm:gap-5">
+        <img src="assets/main/Icon_globe.png" alt="Other" class="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 mt-1 object-contain" />
+        <div>
+          <h3 class="text-base sm:text-lg md:text-xl font-semibold">Other features</h3>
+          <p class="text-sm sm:text-base text-gray-600">A bot that tracks your nodes, a proprietary AI chat, and a parser of important news for each project.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- ===== Node Projects ===== -->
+<section id="projects" class="text-white px-4 sm:px-6 py-14" style="background-color: var(--brand);">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8">Node Projects</h2>
+
+    <!-- Tabs -->
+    <div class="flex justify-center gap-3 sm:gap-4 mb-8">
+      <button onclick="switchProjects('testnet')" id="btn-testnet"
+              class="bg-white text-black px-3 sm:px-4 py-2 rounded-md text-sm sm:text-base">Testnet Nodes</button>
+      <button onclick="switchProjects('mainnet')" id="btn-mainnet"
+              class="bg-gray-900 text-white px-3 sm:px-4 py-2 rounded-md text-sm sm:text-base">Mainnet Nodes</button>
+    </div>
+
+    <!-- Списки карточек заполняются JS -->
+    <div id="testnet-projects"
+         class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5 sm:gap-6"></div>
+
+    <div id="mainnet-projects"
+         class="hidden grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5 sm:gap-6"></div>
+  </div>
+</section>
+
+
+  <!-- ===== Membership ===== -->
+  <section class="px-4 sm:px-6 py-16 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold mb-10">Choose your membership</h2>
+
+    <div class="grid md:grid-cols-12 gap-8 lg:gap-12 max-w-6xl mx-auto items-stretch">
+      <!-- Discount -->
+		<div class="md:col-span-7 bg-zinc-700 text-white p-8 md:p-10 rounded-lg text-left shadow-lg flex flex-col relative overflow-hidden">
+			<h3 class="text-3xl md:text-5xl font-extrabold leading-tight mb-4">
+				Fill the form and get the discount
+			</h3>
+			<p class="mb-6 text-sm md:text-base text-gray-200">
+				It's easy! Just enter your Telegram handle, fill out the form, and get a discount on your first subscription.
+			</p>
+
+			<!-- Форма -->
+			<div class="flex w-full overflow-hidden rounded relative">
+				<input type="text" placeholder="Enter your TG handle"
+							class="w-full px-4 py-3 bg-black text-white placeholder-gray-400 border-b-4 border-pink-500 focus:outline-none" disabled />
+				<button class="bg-pink-500 text-white px-6 md:px-7 py-3 font-semibold whitespace-nowrap" disabled>
+					Get invite
+				</button>
+
+				<!-- Оверлей Coming soon -->
+				<div class="absolute inset-0 flex items-center justify-center bg-black/40 backdrop-blur-sm ">
+					<span class="text-white font-semibold text-lg">Coming soon…</span>
+				</div>
+			</div>
+
+			<p class="mt-4 text-xs text-gray-300">
+				By registering for a discount using your Telegram username, you agree to receive newsletters from our bot.
+			</p>
+		</div>
+
+
+      <!-- Subscription -->
+      <div class="md:col-span-5 bg-[color:var(--brand)] text-white p-8 md:p-10 rounded-3xl text-left relative shadow-lg flex flex-col">
+        <div class="absolute top-6 right-6 opacity-90">
+          <img src="assets/main/GemStone.svg" alt="Diamond" class="w-7 h-7 md:w-8 md:h-8" />
+        </div>
+        <h3 class="text-xl md:text-2xl font-bold mb-2">Subscription</h3>
+        <p class="text-3xl md:text-4xl font-bold mb-6">$55/<span class="text-base font-medium">month</span></p>
+        <ul class="space-y-2 mb-6 text-base md:text-lg">
+          <li class="flex"><img src="assets/main/Checkmark.svg" class="h-5 md:h-6 mr-2"> Unlimited guides</li>
+          <li class="flex"><img src="assets/main/Checkmark.svg" class="h-5 md:h-6 mr-2"> Smart installation scripts</li>
+          <li class="flex"><img src="assets/main/Checkmark.svg" class="h-5 md:h-6 mr-2"> Node-education</li>
+          <li class="flex"><img src="assets/main/Checkmark.svg" class="h-5 md:h-6 mr-2"> Other features</li>
+        </ul>
+        <a href="subscription.html" class="inline-flex items-center justify-center bg-pink-500 hover:bg-pink-600 text-white text-sm md:text-base px-7 py-3 rounded-full font-medium">
+          More details
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="bg-gray-100 text-sm text-black px-4 sm:px-6 py-10">
+    <div class="grid md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+      <div class="flex items-center gap-2">
+        <img src="assets/logo.svg" class="h-7 md:h-8 object-contain" />
+        <p class="text-base md:text-lg font-bold">Profit Nodes</p>
+      </div>
+      <div>
+        <h4 class="font-bold mb-2">Who we are</h4>
+        <ul class="space-y-1">
+          <li><a href="index.html">About Us</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="community.html">Team</a></li>
+          <li><a href="subscription.html">Memberships</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold mb-2">Public</h4>
+        <ul class="space-y-1">
+          <li><a href="https://teletype.in/@anton_profit">Teletype</a></li>
+          <li><a href="https://www.youtube.com/c/AntonProfiT">Youtube</a></li>
+          <li><a href="https://t.me/ProfiT_Mafia_Chat">Chat</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold mb-2">Join the community</h4>
+        <ul class="space-y-1">
+          <li><a href="https://x.com/profit_nodes">Twitter</a></li>
+          <li><a href="https://t.me/ProfitNodes_bot">Telegram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-8 text-center text-gray-500">
+      <p>Copyright © 2025</p>
+    </div>
+  </footer>
+  <script src="projects_toggle.js"></script>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <script src="projects.js"></script>
+</body>
+</html>

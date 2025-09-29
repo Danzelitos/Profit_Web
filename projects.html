@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="assets/favicons/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/favicons/favicon-64x64.png">
+  <link rel="icon" type="image/png" sizes="128x128" href="assets/favicons/favicon-128x128.png">
+  <link rel="icon" type="image/png" sizes="256x256" href="assets/favicons/favicon-256x256.png">
+    
+  <!-- Android/Chrome icons -->
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/favicons/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/favicons/android-chrome-512x512.png">
+    
+  <!-- Apple Touch Icon (iOS) -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/android-chrome-192x192.png">
+    
+  <!-- Web App Manifest -->
+  <link rel="manifest" href="assets/favicons/site.webmanifest">
+  <title>Profit Nodes — Projects</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{ --brand:#7053ff; }
+  </style>
+</head>
+<body class="text-gray-900">
+  <!-- ===== Header (унифицированный) ===== -->
+  <header class="sticky top-0 z-30 bg-white/80 backdrop-blur border-b border-gray-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-2.5 md:py-3 flex items-center justify-between">
+    <!-- Left: Logo -->
+    <a href="index.html" class="flex items-center gap-2 md:gap-3">
+      <!-- меньше на md, обычный на lg -->
+      <img src="assets/logo.svg" alt="Logo"
+           class="h-8 w-8 md:h-9 md:w-9 lg:h-12 lg:w-12 object-contain" />
+      <span class="font-bold text-base md:text-[15px] lg:text-xl">Profit Nodes</span>
+    </a>
+
+    <!-- Center nav (desktop) -->
+    <!-- на md показываем, делаем компактнее; на lg возвращаем обычные отступы и размер -->
+    <nav class="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-4 md:text-[13px] lg:gap-8 lg:text-base">
+			<a href="index.html" class="relative hover:text-[#7053ff]  after:absolute after:left-0 after:bottom-[-4px] after:w-0 after:h-[2px] after:bg-[#7053ff] after:transition-all after:duration-500 hover:after:w-full">About us</a>
+			<a href="projects.html" class="relative hover:text-[#7053ff] font-semibold text-[#7053ff] after:absolute after:left-0 after:bottom-[-4px] after:w-0 after:h-[2px] after:bg-[#7053ff] after:transition-all after:duration-500 hover:after:w-full">Projects</a>
+			<a href="features.html" class="relative hover:text-[#7053ff] after:absolute after:left-0 after:bottom-[-4px] after:w-0 after:h-[2px] after:bg-[#7053ff] after:transition-all after:duration-500 hover:after:w-full">Features</a>
+			<a href="subscription.html" class="relative hover:text-[#7053ff] after:absolute after:left-0 after:bottom-[-4px] after:w-0 after:h-[2px] after:bg-[#7053ff] after:transition-all after:duration-500 hover:after:w-full">Subscription</a>
+			<a href="community.html" class="relative hover:text-[#7053ff] after:absolute after:left-0 after:bottom-[-4px] after:w-0 after:h-[2px] after:bg-[#7053ff] after:transition-all after:duration-500 hover:after:w-full">Community</a>
+		</nav>
+
+    <!-- Right: language + CTA -->
+    <div class="hidden md:flex items-center gap-2 md:gap-3">
+      <!-- язык: компактнее на md, обычный на lg -->
+      <div class="relative inline-block">
+        <!--<select id="lang"-->
+        <!--  class="appearance-none bg-white border border-gray-300-->
+        <!--         text-[13px] md:px-3 md:py-1.5 md:pr-7-->
+        <!--         lg:text-sm lg:px-4 lg:py-2 lg:pr-8-->
+        <!--         rounded-full shadow-md focus:outline-none cursor-pointer text-gray-600">-->
+        <!--  <option value="en" selected>ENG</option>-->
+        <!--  <option value="ru">RUS</option>-->
+        <!--</select>-->
+        <img src="assets/main/ArrowDownFill.svg" alt="arrow"
+             class="pointer-events-none absolute right-2 lg:right-3 top-1/2 -translate-y-1/2 w-3 h-3 opacity-60" />
+      </div>
+
+      <!-- CTA: компактнее на md, обычная на lg -->
+      <a href="https://t.me/ProfitNodes_bot"
+         class="text-white bg-[color:var(--brand)] hover:opacity-90
+                rounded-full
+                md:px-3 md:py-1.5 md:text-[13px]
+                lg:px-4 lg:py-2 lg:text-base">
+        Join now
+      </a>
+    </div>
+
+    <!-- Burger (mobile)  -->
+    <button id="burger" class="md:hidden p-2 rounded-md border border-gray-200">
+      <svg width="20" height="20" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mnav" class="md:hidden hidden border-t border-gray-100">
+    <div class="px-4 py-3 flex flex-col gap-3">
+      <a href="index.html" class="py-1">About us</a>
+      <a href="projects.html" class="py-1">Projects</a>
+      <a href="features.html" class="py-1">Features</a>
+      <a href="subscription.html" class="py-1">Subscription</a>
+      <a href="community.html" class="py-1">Community</a>
+      <div class="flex items-center justify-between pt-2">
+        <div class="relative inline-block">
+          <select
+            class="appearance-none bg-white border border-gray-300 text-sm px-3 py-2 pr-7 rounded-full shadow-md text-gray-600">
+            <option value="en" selected>ENG</option>
+            <option value="ru">RUS</option>
+          </select>
+          <img src="assets/ArrowDownFill.svg"
+               class="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 w-3 h-3 opacity-60" />
+        </div>
+        <a href="https://t.me/ProfitNodes_bot"
+           class="text-white px-4 py-2 rounded-full bg-[color:var(--brand)]">Join now</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+  <!-- ===== Hero / Why us ===== -->
+  <section class="px-4 sm:px-6 py-12 md:py-16">
+		<div class="absolute inset-0 -z-10" style="background: radial-gradient(60% 60% at 50% 0%, rgba(112,83,255,.18) 0%, rgba(112,83,255,0) 60%);"></div>
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <h1 class="text-3xl sm:text-4xl font-extrabold leading-tight">
+          Reliable validators for your networks
+        </h1>
+        <p class="mt-4 text-gray-700">
+          We have been launching and maintaining blockchain nodes since <b>2019</b>.  
+          Our team participated in <b>70+ projects</b>: from early testnets to mainnet validators with
+          strict SLA and security requirements. We value transparency, uptime and long-term partnerships.
+        </p>
+      </div>
+      <div class="bg-[color:var(--brand)]/10 rounded-2xl p-6 md:p-8">
+        <ul class="space-y-3 text-gray-800">
+          <li class="flex items-start gap-3">
+            <span class="mt-1 w-2 h-2 bg-[color:var(--brand)] rounded-full"></span>
+            <span>Validator operations with proven procedures and 24/7 monitoring.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-1 w-2 h-2 bg-[color:var(--brand)] rounded-full"></span>
+            <span>Security-first approach: backups, sentry architecture, firewall hardening.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-1 w-2 h-2 bg-[color:var(--brand)] rounded-full"></span>
+            <span>Active community & own tooling to keep networks healthy.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Advantages ===== -->
+  <section class="px-4 sm:px-6 py-10">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-2xl sm:text-3xl font-bold mb-6">Why staking with us</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <article class="bg-white border border-gray-200 rounded-2xl p-6">
+					<div class="flex items-center mb-2">
+						<img src="assets/projects/DataStructured.svg" alt="infrastructure" class="w-8 h-8 mr-3">
+						<h2 class="text-lg font-semibold mb-2">Powerful infrastructure</h2>
+					</div>
+          <p class="text-gray-600">Bare-metal & cloud servers, NVMe, ECC RAM, redundant networking.</p>
+        </article>
+
+        <article class="bg-white border border-gray-200 rounded-2xl p-6">
+					<div class="flex items-center mb-2">
+						<img src="assets/projects/AppUptime.svg" alt="infrastructure" class="w-8 h-8 mr-3">
+          	<h2 class="text-lg font-semibold mb-2">High uptime</h2>
+					</div>
+          <p class="text-gray-600">Sentry architecture, failover, alerting. Uptime of validators above industry average.</p>
+        </article>
+
+        <article class="bg-white border border-gray-200 rounded-2xl p-6">
+					<div class="flex items-center mb-2">
+						<img src="assets/projects/PartyLeader.svg" alt="infrastructure" class="w-8 h-8 mr-3">
+          	<h2 class="text-lg font-semibold mb-2">Trust & partnerships</h2>
+					</div>
+          <p class="text-gray-600">We collaborate with teams, run testnets, share research, and support communities.</p>
+        </article>
+
+        <article class="bg-white border border-gray-200 rounded-2xl p-6">
+					<div class="flex items-center mb-2">
+						<img src="assets/projects/IbmToolchain.svg" alt="infrastructure" class="w-8 h-8 mr-3">
+          	<h2 class="text-lg font-semibold mb-2">Own tooling</h2>
+					</div>
+          <p class="text-gray-600">Internal bots, monitoring dashboards and scripts to watch nodes & servers.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Mainnet networks ===== -->
+  <section class="px-4 sm:px-6 py-12 bg-gray-50" id="guides">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex items-center justify-between mb-6">
+        <h2 class="text-2xl sm:text-3xl font-bold">Mainnet networks</h2>
+        <span class="text-gray-500 text-sm">Stake safely with proven validators</span>
+      </div>
+
+      <div id="mainnetGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- JS will inject cards -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Testnet networks ===== -->
+  <section class="px-4 sm:px-6 py-12">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex items-center justify-between mb-6">
+        <h2 class="text-2xl sm:text-3xl font-bold">Testnet networks</h2>
+        <span class="text-gray-500 text-sm">Current & recent participation</span>
+      </div>
+
+      <div id="testnetGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- JS will inject cards -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="bg-gray-100 text-sm text-black px-4 sm:px-6 py-10">
+    <div class="grid md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+      <div class="flex items-center gap-2">
+        <img src="assets/logo.svg" class="h-7 md:h-8 object-contain" />
+        <p class="text-base md:text-lg font-bold">Profit Nodes</p>
+      </div>
+      <div>
+        <h4 class="font-bold mb-2">Who we are</h4>
+        <ul class="space-y-1">
+          <li><a href="index.html">About Us</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="community.html">Team</a></li>
+          <li><a href="subscription.html">Memberships</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold mb-2">Public</h4>
+        <ul class="space-y-1">
+          <li><a href="https://teletype.in/@anton_profit">Teletype</a></li>
+          <li><a href="https://www.youtube.com/c/AntonProfiT">Youtube</a></li>
+          <li><a href="https://t.me/ProfiT_Mafia_Chat">Chat</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold mb-2">Join the community</h4>
+        <ul class="space-y-1">
+          <li><a href="https://x.com/profit_nodes">Twitter</a></li>
+          <li><a href="https://t.me/ProfitNodes_bot">Telegram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-8 text-center text-gray-500">
+      <p>Copyright © 2025</p>
+    </div>
+  </footer>
+
+
+	<script src="projectPage.js"></script>
+</body>
+</html>
